@@ -7,14 +7,78 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </head>
   <body>
     <div class="grid-container">
-      <div class="header">Header</div>
+      <div class="header">
+        <div class="user">
+          <div class="user-avatar"><i class="fa-regular fa-user"></i></div>
+          <div class="user-name">Welcome John</div>
+        </div>
+      </div>
 
-      <div class="sidebar">Sidebar</div>
+      <div class="sidebar">
+        <div class="logo">
+          <div class="logo-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <div class="logo-title">Device Manager</div>
+        </div>
 
-      <div class="content">Content</div>
+        <!-- Nav menu  -->
+        <ul class="nav-menu">
+          <li class="nav-item active">
+            <div class="item-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <div class="item-title"><a href="dashboard.html" class="item-link">Dashboard</a></div>
+          </li>
+          <li class="nav-item">
+            <div class="item-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <div class="item-title"><a href="log.html" class="item-link">Logs</a></div>
+          </li>
+          <li class="nav-item">
+            <div class="item-icon"><i class="fa-solid fa-gear"></i></div>
+            <div class="item-title"><a href="setting.html" class="item-link">Settings</a></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="content">
+        <!-- Table device -->
+        <table id="deviceTable">
+          <!-- Table header -->
+          <thead>
+            <tr>
+              <th align="left">Devices</th>
+              <th align="right">MAC Address</th>
+              <th align="right">IP</th>
+              <th align="right">Created Date</th>
+              <th align="right">Power Consumption (Kw/H)</th>
+            </tr>
+          </thead>
+
+          <!-- Table data -->
+          <tbody>
+            <tr>
+              <td align="left">TV</td>
+              <td align="right">MAC Address</td>
+              <td align="right">IP</td>
+              <td align="right">Created Date</td>
+              <td align="right">Power Consumption (Kw/H)</td>
+            </tr>
+          </tbody>
+
+          <!-- Table foot -->
+          <tfoot>
+            <tr>
+              <td colspan="4" align="left">Total</td>
+              <td align="right">280</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     </div>
   </body>
 </html>
