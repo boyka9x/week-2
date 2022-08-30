@@ -1,0 +1,131 @@
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  --text-color: #333;
+  --primary-color: #ff8000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: #d6d6c2;
+}
+
+.main {
+  background: #f1f1f1;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+/* Button styles */
+.btn {
+  border: none;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  padding: 8px 32px;
+  outline: none;
+  cursor: pointer;
+  color: var(--text-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.6rem;
+  background-color: var(--white-color);
+}
+
+.btn.btn--normal:hover {
+  background-color: rgba(0, 0, 0, 0.09);
+}
+
+.btn.btn--primary {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
+
+.btn.btn--primary:hover {
+  opacity: 0.9;
+}
+
+/* Card */
+.card {
+  display: inline-block;
+  color: var(--text-color);
+  background-color: var(--white-color);
+  border-radius: 2px;
+  box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.09);
+}
+
+/* Form */
+.form {
+  width: 400px;
+  min-height: 100px;
+  padding: 16px 50px;
+  text-align: center;
+  background: #fff;
+  border-radius: 2px;
+  align-self: center;
+  margin: 16px;
+  box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.form .heading {
+  font-size: 1.6rem;
+  color: #b8b894;
+  margin-bottom: 32px;
+}
+
+.form-control {
+  height: 40px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  font-size: 1.4rem;
+  background-color: #ffe6ff;
+  color: var(--text-color);
+  margin-bottom: 16px;
+}
+
+.form-control:hover {
+  border-color: #1dbfaf;
+}
+
+.form-control::placeholder {
+  color: #e0dada;
+}
+
+.form-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.form-link {
+  text-decoration: none;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  color: #4db8ff;
+  padding: 8px 16px;
+}
+
+.form-message {
+  color: #f33a58;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+  padding: 0 0 8px 0;
+}

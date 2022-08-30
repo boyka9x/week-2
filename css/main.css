@@ -1,0 +1,27 @@
+/* Grid layout */
+.gird-container {
+  display: grid;
+  width: 100vh;
+  height: 100vh;
+  grid-template-columns: 240px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'sidebar header'
+    'sidebar content';
+  background-color: #f1f1f1;
+}
+
+/* Header */
+.header {
+  grid-area: header;
+}
+
+/* Sidebar */
+.sidebar {
+  grid-area: sidebar;
+}
+
+/* Content */
+.content {
+  grid-area: content;
+}

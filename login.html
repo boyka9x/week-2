@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/base.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div class="main">
+      <form action="" class="form" method="POST" id="form-login">
+        <h3 class="heading">SOIOT SYSTEM</h3>
+
+        <input
+          type="text"
+          name="username"
+          id="username"
+          class="form-control"
+          placeholder="username"
+        />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="form-control"
+          placeholder="password"
+        />
+
+        <span class="form-message"></span>
+
+        <div class="form-action">
+          <button type="submit" class="btn btn--primary">LOGIN</button>
+
+          <a href="register.html" class="form-link">or create new account</a>
+        </div>
+      </form>
+    </div>
+
+    <script src="./js/authenticate.js"></script>
+  </body>
+</html>
