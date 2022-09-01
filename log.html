@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>Logs</title>
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
@@ -32,11 +32,11 @@
 
         <!-- Nav menu  -->
         <ul class="nav-menu">
-          <li class="nav-item active">
+          <li class="nav-item">
             <div class="nav-icon"><i class="fa-solid fa-chart-line"></i></div>
             <a href="dashboard.html" class="nav-link">Dashboard</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <div class="nav-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
             <a href="log.html" class="nav-link">Logs</a>
           </li>
@@ -48,78 +48,64 @@
       </div>
 
       <div class="content">
-        <!-- Table wrapper scroll  -->
-        <div id="table-wrapper">
-          <!-- Table device -->
-          <table id="device-table">
-            <!-- Table header -->
-            <thead id="thead-device">
-              <tr>
-                <th align="left">Devices</th>
-                <th align="right">MAC Address</th>
-                <th align="right">IP</th>
-                <th align="right">Created Date</th>
-                <th align="right">Power Consumption (Kw/H)</th>
-              </tr>
-            </thead>
+        <div class="container">
+          <!-- Heading -->
+          <div class="wrapper mb-log">
+            <div class="content-heading">Action Logs</div>
 
-            <!-- Table data -->
-            <tbody id="tbody-device">
-            </tbody>
-
-            <!-- Table foot -->
-            <tfoot id="tfoot-device">
-              <tr>
-                <td colspan="4" align="left">Total</td>
-                <td id="total-device" align="right">0</td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-
-        <div class="device-action">
-          <div class="chart">
-            <canvas id="deviceChart"></canvas>
-          </div>
-
-          <!-- Form add device -->
-          <div class="form-device">
-            <form action="" class="form" method="POST" id="form-login">
+            <!-- Filter -->
+            <div class="filter-log">
               <input
                 type="text"
                 name="name"
                 id="name"
                 class="form-control"
-                placeholder="Name"
+                placeholder="Search..."
               />
-              <input
-                type="text"
-                name="IP"
-                id="ip"
-                class="form-control"
-                placeholder="IP"
-              />
-              <input
-                type="number"
-                name="power"
-                id="power"
-                class="form-control"
-                placeholder="Power"
-              />
-  
-              <span class="form-message"></span>
-  
-              <div class="form-action">
-                <button type="submit" class="btn btn--primary btn--lg">ADD DEVICE</button>
-              </div>
+              <button class="btn btn--primary">Search</button>
+            </div>
           </div>
-          </form>
+
+          <!-- Table wrapper scroll  -->
+          <div id="table-wrapper">
+            <!-- Table device -->
+            <table id="log-table">
+              <!-- Table header -->
+              <thead id="thead-log">
+                <tr>
+                  <th align="left">Devices ID</th>
+                  <th align="right">Name</th>
+                  <th align="right">Action</th>
+                  <th align="right">Date</th>
+                </tr>
+              </thead>
+
+              <!-- Table data -->
+              <tbody id="tbody-log"></tbody>
+
+              <!-- Table foot -->
+              <!-- <tfoot id="tfoot-log">
+                <tr>
+                  <td colspan="4" align="left">Total</td>
+                  <td id="total-device" align="right">0</td>
+                </tr>
+              </tfoot> -->
+            </table>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination">
+            <!-- <div class="pagination-item active" value="1">1</div>
+            <div class="pagination-dot">...</div>
+            <div class="pagination-item" value="2">2</div>
+            <div class="pagination-item" value="3">3</div> -->
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Js -->
     <script defer src="./utils/verifyUser.js"></script>
-    <script src="./js/dashboard.js"></script>
+    <script src="./js/log.js"></script>
   </body>
 </html>

@@ -13,20 +13,8 @@
       <form action="" class="form" method="POST" id="form-login">
         <h3 class="heading">SOIOT SYSTEM</h3>
 
-        <input
-          type="text"
-          name="username"
-          id="username"
-          class="form-control"
-          placeholder="username"
-        />
-        <input
-          type="password"
-          name="password"
-          id="password"
-          class="form-control"
-          placeholder="password"
-        />
+        <input type="text" name="username" class="form-control" placeholder="username" />
+        <input type="password" name="password" class="form-control" placeholder="password" />
 
         <span class="form-message"></span>
 
@@ -38,6 +26,8 @@
       </form>
     </div>
 
-    <script src="./js/authenticate.js"></script>
+    <!-- Js -->
+    <script defer src="./utils/verifyUser.js"></script>
+    <script src="./js/login.js"></script>
   </body>
 </html>

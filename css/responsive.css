@@ -1,0 +1,33 @@
+@media only screen and (max-width: 768px) {
+  table {
+    margin: 0 10px;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .sidebar {
+    display: none;
+  }
+
+  table {
+    display: none;
+  }
+
+  .form {
+    margin: 16px;
+  }
+
+  /* table th,
+  table td {
+    display: block;
+    border-bottom: none;
+  }
+  table tr th:last-child {
+    border-bottom: 2px solid #ccc;
+  }
+
+  table tr td:last-child {
+    border-bottom: 1px solid #ccc;
+  } */
+}
