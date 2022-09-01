@@ -35,6 +35,7 @@ const logFakeData = [
  */
 document.addEventListener('DOMContentLoaded', (e) => {
   var filter = getFilter();
+  var devices = [];
 
   if (!filter) {
     setFilter({ name: '', page: 1, limit: 5, totalRecords: 10 });
@@ -42,13 +43,13 @@ document.addEventListener('DOMContentLoaded', (e) => {
   }
 
   // Get record by filter
-  const devices = getDeviceByFilter(filter);
-  showLogTable(devices);
-  showPagination(filter);
+  devices = getDeviceByFilter(filter);
+  createLogTable(devices);
+  createPagination(filter);
 });
 
 // Other
-const showLogTable = (devices) => {
+const createLogTable = (devices) => {
   const result = devices
     .map((device) => {
       return `<tr>
@@ -64,18 +65,18 @@ const showLogTable = (devices) => {
   tbodyLog.innerHTML = result;
 };
 
-const showPagination = (filter) => {
+const createPagination = (filter) => {
   const { page, limit, totalRecords } = filter;
-  const pagination = document.querySelector('.pagination');
-
   const totalPages = Math.ceil(totalRecords / limit);
+  const pagination = document.querySelector('.pagination');
+  pagination.innerHTML = '';
 
-  let active;
+  let active = '';
   let beforePage = page - 1;
   let afterPage = page + 1;
 
-  if (page > 1) {
-    pagination.innerHTML += setPaginationItem(1);
+  if (page > 2) {
+    pagination.innerHTML += setPaginationItem(1, active);
   }
 
   if (page > 3) {
@@ -90,23 +91,46 @@ const showPagination = (filter) => {
     afterPage = afterPage + 1;
   }
 
-  for (let i = beforePage; i <= afterPage; i++) {
-    if (page === i) {
-      active = 'active';
+  for (var i = beforePage; i <= afterPage; i++) {
+    if (i > totalPages) {
+      continue;
     }
+    if (i == 0) {
+      i = i + 1;
+    }
+    if (page == i) {
+      active = 'active';
+    } else {
+      active = '';
+    }
+
+    pagination.innerHTML += setPaginationItem(i, active);
   }
 
-  if (page < totalRecords - 2) {
+  if (page < totalPages - 2) {
     pagination.innerHTML += setPaginationDot();
   }
 
-  if (page < totalPages) {
-    pagination.innerHTML += setPaginationItem(totalPages);
+  if (page < totalPages - 1) {
+    pagination.innerHTML += setPaginationItem(totalPages, active);
   }
+
+  // Add click event to the pagination item
+  pagination.querySelectorAll('.pagination-item').forEach((item) => {
+    item.addEventListener('click', (e) => {
+      const page = parseInt(e.target.getAttribute('value'));
+
+      filter = { ...filter, page };
+      setFilter(filter);
+      devices = getDeviceByFilter(filter);
+      createLogTable(devices);
+      createPagination(filter);
+    });
+  });
 };
 
 const setPaginationItem = (page, active) => {
-  return `<div class="pagination-item ${active}" onClick>${page}</div>`;
+  return `<div class="pagination-item ${active}" value="${page}">${page}</div>`;
 };
 
 const setPaginationDot = () => {
@@ -130,11 +154,15 @@ const getDeviceByFilter = (filter) => {
     totalRecords = filterByName.length;
 
     for (let i = prevPage; i < currentPage; i++) {
-      list.push(filterByName[i]);
+      if (filterByName[i]) {
+        list.push(filterByName[i]);
+      }
     }
   } else {
     for (let i = prevPage; i < currentPage; i++) {
-      list.push(logFakeData[i]);
+      if (logFakeData[i]) {
+        list.push(logFakeData[i]);
+      }
     }
 
     totalRecords = logFakeData.length;
