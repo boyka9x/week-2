@@ -6,10 +6,6 @@
 }
 
 @media only screen and (max-width: 414px) {
-  .sidebar {
-    display: none;
-  }
-
   table {
     display: none;
   }
@@ -18,16 +14,38 @@
     margin: 16px;
   }
 
-  /* table th,
-  table td {
-    display: block;
-    border-bottom: none;
-  }
-  table tr th:last-child {
-    border-bottom: 2px solid #ccc;
+  .header {
+    justify-content: space-between;
   }
 
-  table tr td:last-child {
-    border-bottom: 1px solid #ccc;
-  } */
+  .sidebar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  .menu-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content {
+    width: 100%;
+    padding: 0 8px;
+  }
+
+  .device-action {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .device-action .chart {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

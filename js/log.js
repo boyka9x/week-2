@@ -42,10 +42,28 @@ document.addEventListener('DOMContentLoaded', (e) => {
     filter = getFilter();
   }
 
-  // Get record by filter
+  // Get record by filter when page is loaded first
   devices = getDeviceByFilter(filter);
   createLogTable(devices);
+  filter = getFilter();
   createPagination(filter);
+
+  // Search filter
+  const searchBtn = document.querySelector('.filter-log button');
+  const inputName = document.querySelector('.filter-log input');
+  if (filter.name) {
+    inputName.value = filter.name;
+  }
+
+  searchBtn.addEventListener('click', (e) => {
+    const newFilter = { ...filter, name: inputName.value, page: 1 };
+
+    setFilter(newFilter);
+    devices = getDeviceByFilter(newFilter);
+    createLogTable(devices);
+    filter = getFilter();
+    createPagination(filter);
+  });
 });
 
 // Other
@@ -139,8 +157,8 @@ const setPaginationDot = () => {
 
 const getDeviceByFilter = (filter) => {
   var { name, page, limit, totalRecords } = filter;
-  if (page <= 0) page = 1;
-  if (limit <= 0) limit = 5;
+  if (page < 1) page = 1;
+  if (limit < 1) limit = 5;
 
   let list = [];
   let prevPage = (page - 1) * limit;
@@ -148,7 +166,7 @@ const getDeviceByFilter = (filter) => {
 
   if (name) {
     const filterByName = logFakeData.filter((item) => {
-      return item.name.includes(name);
+      return item.name.toLowerCase().includes(name.toLowerCase());
     });
 
     totalRecords = filterByName.length;

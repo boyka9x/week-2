@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
   createDoughnutChart('deviceChart', 'Power', xValues, yValues, barColors);
 
   // Handle form device
-  var formDevice = document.querySelector('.form-device');
+  var formDevice = document.querySelector('#form-device');
   formDevice.addEventListener('submit', (e) => {
     e.preventDefault();
 

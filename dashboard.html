@@ -17,10 +17,15 @@
   </head>
   <body>
     <div class="grid-container">
+      <div class="menu-model"></div>
       <div class="header">
+        <div class="menu-toggle">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
         <div class="user">
           <div class="user-avatar"><i class="fa-regular fa-user"></i></div>
-          <div class="user-name">Welcome John</div>
+          <div class="user-name"></div>
         </div>
       </div>
 
@@ -84,7 +89,7 @@
 
           <!-- Form add device -->
           <div class="form-device">
-            <form action="" class="form" method="POST" id="form-login">
+            <form action="" class="form" method="POST" id="form-device">
               <input
                 type="text"
                 name="name"
@@ -120,6 +125,7 @@
 
     <!-- Js -->
     <script defer src="./utils/verifyUser.js"></script>
+    <script defer src="./utils/common.js"></script>
     <script src="./js/dashboard.js"></script>
   </body>
 </html>

@@ -156,7 +156,7 @@ tfoot td {
   border-radius: 3px;
   outline: none;
   font-size: 1.4rem;
-  background-color: #ffe6ff;
+  background-color: #eec9d2;
   color: var(--text-color);
   margin-bottom: 16px;
 }
@@ -166,12 +166,12 @@ tfoot td {
 }
 
 .form-control::placeholder {
-  color: #adad85;
+  color: #4a4e4d;
 }
 
 .form-control:focus,
 .form-control:invalid {
-  outline: 1px solid #ffb3d9;
+  outline: 2px solid #ffb3d9;
 }
 
 .form-action {
@@ -222,7 +222,7 @@ tfoot td {
 }
 
 .pagination-item:hover {
-  opacity: 0.7;
+  background-color: #0e9aa7;
 }
 
 .pagination-item.active {
@@ -235,4 +235,15 @@ tfoot td {
   color: #b8b894;
   user-select: none;
   margin: 0 4px;
+}
+
+/* Model */
+.menu-model {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: #4a4e4d;
+  position: fixed;
+  opacity: 0.5;
+  z-index: 1;
 }

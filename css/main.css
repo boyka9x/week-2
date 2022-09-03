@@ -22,6 +22,22 @@
   top: 0;
 }
 
+.menu-toggle {
+  display: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.menu-toggle:hover {
+  background-color: #585953;
+}
+
+.menu-toggle i {
+  font-size: 1.6rem;
+}
+
 .user {
   display: flex;
   align-items: center;
@@ -83,6 +99,7 @@
   display: flex;
   align-items: center;
   padding: 6px 20px;
+  height: 32px;
   cursor: pointer;
 }
 
@@ -103,10 +120,12 @@
 
 .nav-item.active .nav-link {
   color: #1a75ff;
+  border-right: 2px solid #1a75ff;
 }
 
 .nav-item:hover:not(.active) .nav-link {
   color: #b3d1ff;
+  border-right: 2px solid #b3d1ff;
 }
 
 /* Content */
@@ -148,7 +167,6 @@
 }
 
 .filter-log input {
-  padding: 8px;
   margin: 0;
   height: 34px;
 }
